@@ -295,7 +295,7 @@ Write-Host "Found $($customers.Count) customers in Partner Center." -ForegroundC
 $CustomerToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes 'https://graph.microsoft.com/.default' -Tenant $customerTenantID
 $headers = @{ "Authorization" = "Bearer $($CustomerToken.AccessToken)" }
 
-  $CustomerDomains = Get-MsolDomain -TenantId $customer.TenantID
+  $CustomerDomains = Get-MsolDomain -TenantId $customerTenantID
   $orgid = foreach ($customerDomain in $customerdomains) {
       ($domainList | Where-Object { $_.domain -eq $customerDomain.name }).'OrgID'
   }
@@ -307,7 +307,7 @@ $headers = @{ "Authorization" = "Bearer $($CustomerToken.AccessToken)" }
   if($orgID){
 
     ###Get Access Token########
-    $CustomerToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes 'https://graph.microsoft.com/.default' -Tenant $customer.TenantID
+    $CustomerToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes 'https://graph.microsoft.com/.default' -Tenant $customerTenantID
     $headers = @{ "Authorization" = "Bearer $($CustomerToken.AccessToken)" }
     
 
@@ -364,7 +364,7 @@ $headers = @{ "Authorization" = "Bearer $($CustomerToken.AccessToken)" }
              'encrypted'                = $device.isEncrypted | Out-String
              'serial-number'            = $device.serialNumber
              'configurations'           = ($AllITGlueConfigurations | where-object { $_.attributes.name -eq $device.DeviceName}).id
-             'investigate'              = "https://aad.portal.azure.com/$($customer.TenantID)/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/Devices/menuId/"
+             'investigate'              = "https://aad.portal.azure.com/$($customerTenantID)/#blade/Microsoft_AAD_Devices/DevicesMenuBlade/Devices/menuId/"
             }
         }
     }

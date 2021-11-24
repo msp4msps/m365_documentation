@@ -238,7 +238,7 @@ Connect-MsolService -AdGraphAccessToken $aadGraphToken.AccessToken -MsGraphAcces
 
 
 
-  $CustomerDomains = Get-MsolDomain -TenantId 1685b7a8-3883-44b8-b613-b9328c67c798
+  $CustomerDomains = Get-MsolDomain -TenantId $customerTenantID
   $orgid = foreach ($customerDomain in $customerdomains) {
       ($domainList | Where-Object { $_.domain -eq $customerDomain.name }).'OrgID'
   }
@@ -250,7 +250,7 @@ Connect-MsolService -AdGraphAccessToken $aadGraphToken.AccessToken -MsGraphAcces
   if($orgID){
 
     ###Get Access Token########
-    $CustomerToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes 'https://graph.microsoft.com/.default' -Tenant 1685b7a8-3883-44b8-b613-b9328c67c798
+    $CustomerToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes 'https://graph.microsoft.com/.default' -Tenant $customerTenantID
     $headers = @{ "Authorization" = "Bearer $($CustomerToken.AccessToken)" }
 
     
