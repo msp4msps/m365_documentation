@@ -76,6 +76,88 @@ Microsoft Users
 - TeamsCallCount
 - TeamsMeetingCount
 
+MS Groups
+
+- GroupName
+- Email
+- Group Type
+- Membership Type
+- Creation Date
+- Source
+- Security Enabled
+- Visibility
+- HideFromGal
+- Teams Connected
+- Owners
+- Members
+
+MS Devices
+
+- DeviceName
+- Enabled
+- OS
+- Version
+- JoinType
+- UserName
+- ManagementType
+- Compliance
+- DeviceOwnership
+- RegisteredDate
+- LastActivityDate
+- AutopilotEnrolled
+- isEncrypted
+- SerialNumber
+
+SharePoint Sites
+
+- Site Name
+- Site URL
+- Last Activity Date
+- Site File Count
+- Site Storage Used (GB)
+- Storage Allocated (GB)
+- Microsoft Group Connected
+
+Exchange Settings
+
+- Legacy Auth Settings
+- Mail Transport Rules
+- OWA Policies
+- Accepted Domains
+- Mobile Device Policies
+- Retention Policies
+- Retention Policy Tags
+- Journal Rules
+- Antiphish Policies
+- Outbound Spam Policies
+- AntiSpam Policies
+- Malware Policies
+- Safe Attachment Policies
+- Safe Link Policies
+- DKIM settings
+
+Azure AD Settings
+
+- Conditional Acces Policies
+- Legacy Auth Sign Ins
+- Named Locations
+- Self-Service Password Reset Settings
+- Can Users Register Applications
+- Can Users Consent for Applications
+
+Intune Settings
+
+- Windows Compliance Policies
+- macOS Compliance Policies
+- iOS Compliance Policies
+- Android Compliance Policies
+- Windows Information Protection Policies
+- iOS App Protection Policies
+- Android App Protection Policies
+- Configuration Profiles
+- Applications
+- App Configuration Profiles
+
 ## User Story
 
 As an MSP, I would like granular documentation on users, groups, and organization settings that can help me be more proactive in managing customer environments.
