@@ -170,7 +170,9 @@ Powershell
 
 ## Installation
 
-1.Leverage the Create_Auth ps1 file if you have not already created an app registration to garner tokens for authenticating to customer environments. 2. Fork the repo to modify the scripts or leverage the scripts to start documenting customer environments.
+1. Leverage the Create_Auth.ps1 file if you have not already created an app registration to garner tokens for authenticating to customer environments.
+2. Leverage the Remove_AnonymidedReports.ps1 file to ensure all customers have reports that are not anonymized. You could do this at a per customer basis as well.
+3. Fork the repo to modify the scripts or leverage the scripts to start documenting customer environments.
 
 ## Usage
 
