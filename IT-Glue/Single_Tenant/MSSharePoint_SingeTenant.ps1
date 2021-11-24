@@ -243,11 +243,11 @@ try{
           if (!$ExistingFlexAsset) {
               $FlexAssetBody.attributes.add('organization-id', $orgID)
               $FlexAssetBody.attributes.add('flexible-asset-type-id', $($filterID.ID))
-              write-host "Creating Group: $($group.displayName) in IT-Glue" -ForegroundColor Green
+              write-host "Creating Site in IT-Glue" -ForegroundColor Green
               New-ITGlueFlexibleAssets -data $FlexAssetBody
           }
           else {
-              write-host "Updating Group: $($group.displayName) in IT-Glue"  -ForegroundColor Yellow
+              write-host "Updating Site in IT-Glue"  -ForegroundColor Yellow
               $ExistingFlexAsset = $ExistingFlexAsset | select-object -last 1
               Set-ITGlueFlexibleAssets -id $ExistingFlexAsset.id -data $FlexAssetBody
           }
