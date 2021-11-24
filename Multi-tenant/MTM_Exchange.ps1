@@ -1,13 +1,8 @@
 <#
   .SYNOPSIS
-  This function is used to add an MDM application using the Graph API REST interface
-  .DESCRIPTION
-  The function connects to the Graph API Interface and adds an MDM application from the itunes store
-  .EXAMPLE
-  Add-MDMApplication -JSON $JSON1
-  Adds an application into Intune
+  This script is used to garner exchange information across all customers and output that information to a CSV file
   .NOTES
-  NAME: Add-MDMApplication
+  This script leverages the Secure Application model to authenticate to a customer tenant in which you have delegated privledges
   #>
   Param
   (
