@@ -48,7 +48,7 @@ $credential = New-Object System.Management.Automation.PSCredential($ApplicationI
 
 
 ########################## IT-Glue Information ############################
-$APIKey = "ITG.9eddd159f5f9510e32c4ca3052149c0d.LeSzbZsyHG9QpgfJnLhe_35InsJFSPtTOaM3Gn5yjTE95fPXBLQdASzCLiIK2tSR"
+$APIKey = $ITGlueAPIKey
 $APIEndpoint = "https://api.itglue.com"
 $FlexAssetName = "Exchange Settings"
 $Description = "Documentation for all Exchange Related Settings"

@@ -41,7 +41,7 @@ $secPas = $ApplicationSecret| ConvertTo-SecureString -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential($ApplicationId, $secPas)
 
 ########################## IT-Glue Information ############################
-$APIKey = "ITG.9eddd159f5f9510e32c4ca3052149c0d.LeSzbZsyHG9QpgfJnLhe_35InsJFSPtTOaM3Gn5yjTE95fPXBLQdASzCLiIK2tSR"
+$APIKey = $ITGlueAPIKey
 $APIEndpoint = "https://api.itglue.com"
 $FlexAssetName = "Intune Settings"
 $Description = "Documentation for all Intune Related Settings"
