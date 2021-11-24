@@ -5,7 +5,7 @@
 [![project-top-language](https://img.shields.io/github/languages/top/msp4msps/m365_documentation?color=blueviolet)](https://github.com/msp4msps/m365_documentation)
 [![license](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://choosealicense.com/licenses/mit/)
 
-## Table of Content
+## Table of Contents
 
 - [ Project Links ](#Project-Links)
 - [ Screenshots](#Screenshots)
@@ -29,11 +29,52 @@ https://tminus365.com
 
 ## Screenshots-Demo
 
-<kbd>![screenshot1](Assets/Screenshot8.png)</kbd><kbd>![screenshot2](Assets/Screenshot7.png)</kbd>
+<kbd>![screenshot1](Assets/Screenshot8.png)</kbd><kbd>![screenshot2](Assets/Screenshot7.png)</kbd><kbd>![screenshot3](Assets/Screenshot6.png)</kbd>
 
 ## Project Description
 
 The following project was created to house scripts for documenting M365 tenants for customers that you manage. Today the documentation consist of CSV files and flexible assets in IT Glue. These scripts leverage the Secure Application model to create a secure connection to all customers under management in Partner Center.
+
+## Information Collected
+
+Microsoft Users
+
+- DisplayName
+- FirstName
+- UPN
+- Role
+- JobTitle
+- LicensesAssigned
+- LastSignIn
+- createdDateTime
+- accountEnabled
+- AccountType
+- LastPasswordChange
+- PasswordExpiration
+- MFARegistered
+- ExchangeLastActive
+- MailboxStorageUsedGB
+- MailboxItemCount
+- HasArchive
+- AuthMethod:Phone
+- AuthMethod:Email
+- OneDriveLastActive
+- OneDriveStorageUsed
+- OneDriveFileCount
+- OneDriveViewed/EditedFileCount
+- OneDriveSyncedFileCount
+- OneDriveSharedInternalFileCount
+- OneDriveSharedExternalFileCount
+- SharePointLastActive
+- SharePointViewed/EditedFileCount
+- SharePointSyncedFileCount
+- SharePointSharedInternalFileCount
+- SharePointSharedExternalFileCount
+- SharePointVisitedPageCount
+- TeamsLastActive
+- TeamsChatCount
+- TeamsCallCount
+- TeamsMeetingCount
 
 ## User Story
 
