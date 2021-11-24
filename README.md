@@ -29,7 +29,7 @@ https://tminus365.com
 
 ## Screenshots-Demo
 
-<kbd>![screenshot1](Assets/Screenshot1.png)</kbd><kbd>![screenshot2](Assets/Screenshot2.png)</kbd>
+<kbd>![screenshot1](Assets/Screenshot8.png)</kbd><kbd>![screenshot2](Assets/Screenshot7.png)</kbd>
 
 ## Project Description
 
