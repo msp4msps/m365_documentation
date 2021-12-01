@@ -75,7 +75,7 @@ if (!$FilterID) {
         type          = 'flexible-asset-types'
         attributes    = @{
             name        = $FlexAssetName
-            icon        = 'mail'
+            icon        = 'envelope'
             description = $description
         }
         relationships = @{

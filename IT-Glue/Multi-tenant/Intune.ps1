@@ -68,7 +68,7 @@ if (!$FilterID) {
         type          = 'flexible-asset-types'
         attributes    = @{
             name        = $FlexAssetName
-            icon        = 'device'
+            icon        = 'desktop'
             description = $description
         }
         relationships = @{

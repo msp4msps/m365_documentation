@@ -69,7 +69,7 @@ if (!$FilterID) {
         type          = 'flexible-asset-types'
         attributes    = @{
             name        = $FlexAssetName
-            icon        = 'microsoft'
+            icon        = 'building'
             description = $description
         }
         relationships = @{
