@@ -41,6 +41,16 @@ $ExchangeRefreshToken = $ExchangeRefreshToken
 $secPas = $ApplicationSecret| ConvertTo-SecureString -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential($ApplicationId, $secPas)
 
+###Connect to your Own Partner Center to get a list of customers/tenantIDs #########
+
+$aadGraphToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes 'https://graph.windows.net/.default' -ServicePrincipal -Tenant $tenantID
+
+$graphToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes 'https://graph.microsoft.com/.default' -ServicePrincipal -Tenant $tenantID
+
+$customers = Get-MsolPartnerContract -All
+
+ 
+Write-Host "Found $($customers.Count) customers in Partner Center." -ForegroundColor DarkGreen
 
 Connect-MsolService -AdGraphAccessToken $aadGraphToken.AccessToken -MsGraphAccessToken $graphToken.AccessToken
 
