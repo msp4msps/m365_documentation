@@ -16,6 +16,10 @@
         [string]$tenantID,
         [Parameter(Mandatory= $true, HelpMessage="Enter your refreshToken from the Secure Application Model")]
         [string]$refreshToken,
+        [Parameter(Mandatory= $true, HelpMessage="Enter your Exchange refreshToken from the Secure Application Model")]
+        [string]$ExchangeRefreshToken,
+        [Parameter(Mandatory= $true, HelpMessage="Enter your Partner Center UPN")]
+        [string]$upn,
         [Parameter(Mandatory= $true)]
         [string]$customerTenantID
     )
@@ -37,6 +41,8 @@ $ApplicationId = $ApplicationId
 $ApplicationSecret = $ApplicationSecret
 $tenantID = $tenantID
 $refreshToken = $refreshToken
+$ExchangeRefreshToken = $ExchangeRefreshToken
+$upn = $upn
 $secPas = $ApplicationSecret| ConvertTo-SecureString -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential($ApplicationId, $secPas)
 
@@ -49,17 +55,13 @@ $graphToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $
 
 Connect-MsolService -AdGraphAccessToken $aadGraphToken.AccessToken -MsGraphAccessToken $graphToken.AccessToken
 
- 
-$CustomerToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes 'https://graph.microsoft.com/.default' -Tenant $customerTenantID
-$headers = @{ "Authorization" = "Bearer $($CustomerToken.AccessToken)" }
-
 
 ##GET DOMAIN 
 $customerDomain = (Get-MsolDomain -TenantId $customerTenantID).name[1]
 
 
 
-### Connect to Exchange
+## Connect to Exchange
 Write-Host "Connecting to Exchange" -ForegroundColor Green
 $token = New-PartnerAccessToken -ApplicationId 'a0c73c16-a7e3-4564-9a95-2bdf47383716'-RefreshToken $ExchangeRefreshToken -Scopes 'https://outlook.office365.com/.default' -Tenant $customerTenantID -ErrorAction SilentlyContinue
     $tokenValue = ConvertTo-SecureString "Bearer $($token.AccessToken)" -AsPlainText -Force
@@ -67,6 +69,12 @@ $token = New-PartnerAccessToken -ApplicationId 'a0c73c16-a7e3-4564-9a95-2bdf4738
     $InitialDomain = Get-MsolDomain -TenantId $customerTenantID | Where-Object {$_.IsInitial -eq $true}
     $session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "https://ps.outlook.com/powershell-liveid?DelegatedOrg=$($InitialDomain)&BasicAuthToOAuthConversion=true" -Credential $credential -Authentication Basic -AllowRedirection -ErrorAction SilentlyContinue
     Import-PSSession $session  -AllowClobber -ErrorAction SilentlyContinue
+
+
+ 
+    $CustomerToken = New-PartnerAccessToken -ApplicationId $ApplicationId -Credential $credential -RefreshToken $refreshToken -Scopes 'https://graph.microsoft.com/.default' -Tenant $customerTenantID
+    $headers = @{ "Authorization" = "Bearer $($CustomerToken.AccessToken)" }
+
 try{
 
     ##Get Mail Rules
